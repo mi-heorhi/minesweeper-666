@@ -27,7 +27,6 @@ export default class Timer extends Component {
             <div class="alert alert-success" role="alert">
                 Time: {timer ? timer.value : 0}
             </div>
-        )
-
+        );
     }
 }

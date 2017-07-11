@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Game from './Game.js'
+import Game from './Game.js';
 
 export default class MineSwipper extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export default class MineSwipper extends Component {
             <div>
                 <Game level={level}/>
             </div>
-        )
+        );
 
     }
 }

@@ -37,6 +37,6 @@ export function initGame(level, cb) {
                 cell.hasMine = true;
             }
         }
-        dispatch(actions.receiveBoard(board, mineNum))
+        dispatch(actions.receiveBoard(board, mineNum));
     };
 };

@@ -1,9 +1,9 @@
-import React from 'react'
-import {IndexRoute, Route, Link, IndexRedirect, Redirect} from 'react-router'
-import StartGame from '../components/StartGame.js'
-import MineSwipper from '../components/MineSwipper.js'
-import Result from '../components/Result.js'
-import Layout from '../components/Layout.js'
+import React from 'react';
+import {Route, IndexRedirect} from 'react-router';
+import StartGame from '../components/StartGame.js';
+import MineSwipper from '../components/MineSwipper.js';
+import Result from '../components/Result.js';
+import Layout from '../components/Layout.js';
 
 const Routes = (
   <Route path='/' component={Layout}>

@@ -1,4 +1,4 @@
-import * as actions from './'
+import * as actions from './';
 
 export function startTimer(cb) {
     return (dispatch, getState) => {

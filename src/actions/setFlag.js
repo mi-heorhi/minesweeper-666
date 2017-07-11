@@ -1,5 +1,4 @@
-import * as actions from './'
-import {push} from 'react-router-redux'
+import * as actions from './';
 
 export function setFlag(x, y, cb) {
     return (dispatch, getState) => {
