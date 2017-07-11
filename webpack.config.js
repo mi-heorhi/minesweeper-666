@@ -1,23 +1,32 @@
+const webpack = require('webpack');
+const path = require('path');
+
 module.exports = {
   entry: [
-    './app/App.js'
+    './src/index'
   ],
+  module: {
+    loaders: [
+      { test: /\.js?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.s?css$/, loader: 'style-loader!css-loader!sass-loader' },
+    ]
+  },
+  resolve: {
+    extensions: ['.js','.scss']
+  },
   output: {
-    path: __dirname,
+    path: path.join(__dirname, '/dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
-  module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
-      }
-    }]
+  devtool: 'cheap-eval-source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  }
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
 };
