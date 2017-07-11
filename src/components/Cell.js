@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {Glyphicon, Button} from 'react-bootstrap';
+
+const colors = ['#deeaee', '#b1cbbb', '#eea29a', '#c94c4c', '#c94c4c', '#c94c4c', '#c94c4c'];
 
 export default class Cell extends Component {
     constructor(props) {
@@ -25,28 +28,28 @@ export default class Cell extends Component {
         if (cell.isOpened) {
             if (!cell.hasMine) {
                 return <td style={cellStype}>
-                    <button style={buttonStyle}>{cell.count}</button>
+                    <Button style={buttonStyle}><span style={{color: colors[cell.count]}}>{cell.count}</span></Button>
                 </td>
             } else {
                 return <td style={cellStype}>
-                    <button style={buttonStyle}>M</button>
+                    <Button style={buttonStyle}><Glyphicon glyph="asterisk" /></Button>
                 </td>
             }
         } else {
             if (!cell.hasMine && !cell.hasFlag) {
                 return <td style={cellStype}>
-                    <button
+                    <Button
                         style={buttonStyle}
                         onClick={() => onOpen(x, y)}
-                        onContextMenu={this.setFlag}></button>
+                        onContextMenu={this.setFlag}></Button>
                 </td>
             } else if (cell.hasMine && !cell.hasFlag) {
                 return <td style={cellStype}>
-                    <button style={buttonStyle} onClick={() => boom()} onContextMenu={this.setFlag}></button>
+                    <Button style={buttonStyle} onClick={() => boom()} onContextMenu={this.setFlag}></Button>
                 </td>
             } else {
                 return <td style={cellStype}>
-                    <button style={buttonStyle} onContextMenu={this.setFlag}>F</button>
+                    <Button style={buttonStyle} onContextMenu={this.setFlag}><Glyphicon glyph="flag" /></Button>
                 </td>
             }
         }
