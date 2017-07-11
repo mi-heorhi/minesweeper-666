@@ -4,16 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack --progress --colors --watch",
-    "build": "webpack --progress --colors --optimize-minimize"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "postinstall": "webpack -p"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^15.3.2",
     "react-bootstrap": "^0.31.0",
-    "react-dnd": "^2.2.4",
-    "react-dnd-html5-backend": "^2.2.4",
+    "webpack": "^1.12.9",
+    "express": "^4.13.3",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"
   },
