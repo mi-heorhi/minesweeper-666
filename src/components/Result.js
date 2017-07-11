@@ -43,9 +43,7 @@ export default class Result extends Component {
                         You Result is: {this.props.params.result}! Try again?
                     </Link>
                 </div>
-                <table style={{
-                    border: '3px'
-                }}>
+                <table>
                     {rows}
                 </table>
             </div>

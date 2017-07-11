@@ -9,7 +9,7 @@ export function openCell(x, y, cb) {
         }
         const cell = game.board[y][x];
         if(game.oppened + 1 + game.mines >= game.board.length * game.board[0].length) {
-            const result = Math.round(timer.value / (game.board.length * game.board[0].length / game.mines));
+            const result = Math.round((game.board.length * game.board[0].length / game.mines) / timer.value);
             dispatch(actions.stopTimer());
             dispatch(push('/end/' + result));
         }
@@ -17,7 +17,6 @@ export function openCell(x, y, cb) {
             let minesArrouned = 0;
             for (var row = -1; row <= 1; row++) {
                 for (var col = -1; col <= 1; col++) {
-
                     if (y - 0 + row >= 0 && x - 0 + col >= 0 && y - 0 + row < game.board.length && x - 0 + col < game.board[0].length && game.board[y - 0 + row][x - 0 + col].hasMine && !(row === 0 && col === 0)) {
                         minesArrouned++;
                     }
