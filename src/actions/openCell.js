@@ -9,8 +9,9 @@ export function openCell(x, y, cb) {
         }
         const cell = game.board[y][x];
         if(game.oppened + 1 + game.mines >= game.board.length * game.board[0].length) {
-            const result = Math.round((game.board.length * game.board[0].length / game.mines) / timer.value);
+            const result = Math.round((game.board.length * game.board[0].length / game.mines) * timer.value * 100);
             dispatch(actions.stopTimer());
+            debugger
             dispatch(push('/end/' + result));
         }
         if (!cell.isOpened) {
