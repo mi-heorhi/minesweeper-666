@@ -12,3 +12,9 @@ export {showResult}
 from './showResult.js';
 export {setFlag}
 from './setFlag.js';
+export {receiveTime}
+from './receiveTime.js';
+export {startTimer}
+from './startTimer.js';
+export {stopTimer}
+from './stopTimer.js';

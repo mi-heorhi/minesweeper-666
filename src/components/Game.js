@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {gameSelector} from '../selectors';
 import {initGame, openCell, boom, setFlag} from '../actions';
 import Row from './Row.js';
+import Timer from './Timer.js';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -41,11 +42,14 @@ export default class Game extends Component {
                 })
         }
         return (
+            <div>
+                <Timer />
             <table style={{
                 border: '3px'
             }}>
                 {rows}
             </table>
+            </div>
         )
 
     }

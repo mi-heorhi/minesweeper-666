@@ -3,13 +3,15 @@ import {push} from 'react-router-redux'
 
 export function openCell(x, y, cb) {
     return (dispatch, getState) => {
-        const {game} = getState()
+        const {game, timer} = getState();
         if (y + 1  > game.board.length || x + 1> game.board[0].length || x < 0 || y < 0) {
             return;
         }
         const cell = game.board[y][x];
         if(game.oppened + 1 + game.mines >= game.board.length * game.board[0].length) {
-            dispatch(push('/end/won'))
+            const result = Math.round(timer.value / (game.board.length * game.board[0].length / game.mines));
+            dispatch(actions.stopTimer());
+            dispatch(push('/end/' + result));
         }
         if (!cell.isOpened) {
             let minesArrouned = 0;
@@ -27,7 +29,7 @@ export function openCell(x, y, cb) {
                     isOpened: true,
                     hasMine: cell.hasMine,
                     hasFlag: false
-                }, x, y))
+                }, x, y));
             } else {
                 dispatch(actions.receiveCell({
                     count: minesArrouned,

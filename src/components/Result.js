@@ -23,7 +23,7 @@ export default class Result extends Component {
         actions.showResult();
     }
     render() {
-        const {actions, game} = this.props
+        const {actions, game} = this.props;
         let rows = []
         if (game.board) {
             rows = game
@@ -39,9 +39,8 @@ export default class Result extends Component {
         return (
             <div>
                 <div class="alert alert-success" role="alert">
-                    Game Over!
                     <Link to={`/start`} class="alert-link">
-                        Try again
+                        You Result is: {this.props.params.result}! Try again?
                     </Link>
                 </div>
                 <table style={{
