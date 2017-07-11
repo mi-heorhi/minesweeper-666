@@ -13,7 +13,7 @@ export default class StartGame extends Component {
             margin: '0 auto 10px'
         };
         return (
-            <div class="btn-group-vertical col-md-4 center-block">
+            <div class="btn-group-vertical col-md-4 text-center">
                 <Link to={`/game/easy`} class="btn btn-default">
                     Easy
                 </Link>
