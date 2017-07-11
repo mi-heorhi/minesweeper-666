@@ -10,7 +10,7 @@ export default class Row extends Component {
         return (
             <tr>
                 {cells.map((cell, index) => {
-                    return <Cell cell={cell} x={index} y={lineNumber} onOpen={onOpen} boom={boom} setFlag={setFlag}/>
+                    return <Cell cell={cell} x={index} y={lineNumber} onOpen={onOpen} boom={boom} setFlag={setFlag} key={'cell-' + index}/>
                 })}
             </tr>
         );

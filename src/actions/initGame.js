@@ -18,26 +18,25 @@ export function initGame(level, cb) {
             mineNum = 100;
             rowNum = 16;
             colNum = 30;
+        } else if(level === 'lucky') {
+            mineNum = 1;
+            rowNum = 2;
+            colNum = 2;
         }
-        for(let row = 0; row < rowNum; row++){
+        for (let row = 0; row < rowNum; row++) {
             board.push([]);
-            for(var col = 0; col < colNum; col++){
-                board[row].push({
-                    count : 0,
-                    isOpened : false,
-                    hasMine : false,
-                    hasFlag : false
-                });
+            for (var col = 0; col < colNum; col++) {
+                board[row].push({count: 0, isOpened: false, hasMine: false, hasFlag: false});
             }
         }
-        for(let mine = 0; mine < mineNum; mine++){
-            let cell = board[Math.floor(Math.random()*rowNum)][Math.floor(Math.random()*colNum)];
-            if(cell.hasMine){
+        for (let mine = 0; mine < mineNum; mine++) {
+            let cell = board[Math.floor(Math.random() * rowNum)][Math.floor(Math.random() * colNum)];
+            if (cell.hasMine) {
                 mine--;
             } else {
                 cell.hasMine = true;
             }
         }
-        dispatch(actions.receiveBoard(board))
+        dispatch(actions.receiveBoard(board, mineNum))
     };
 };

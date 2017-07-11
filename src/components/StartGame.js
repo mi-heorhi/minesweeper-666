@@ -23,6 +23,9 @@ export default class StartGame extends Component {
                 <Link to={`/game/hard`} class="btn btn-default">
                     Hard
                 </Link>
+                <Link to={`/game/lucky`} class="btn btn-default">
+                    You're lucky?
+                </Link>
             </div>
         );
     }

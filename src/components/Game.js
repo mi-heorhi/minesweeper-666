@@ -36,7 +36,8 @@ export default class Game extends Component {
                         lineNumber={index}
                         onOpen={(x, y) => actions.openCell(x, y)}
                         boom={() => actions.boom()}
-                        setFlag={(x, y) => actions.setFlag(x, y)}/>
+                        setFlag={(x, y) => actions.setFlag(x, y)}
+                        key={'row-' + index }/>
                 })
         }
         return (
